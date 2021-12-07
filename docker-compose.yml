@@ -1,0 +1,24 @@
+
+sodproduk-web:
+  build: docker/
+  ports:
+    - 9992:80
+  volumes:
+    - ./public_html:/var/www/html:ro
+#    - ./configuration.php:/var/www/html/configuration.php:ro
+  container_name: sodproduk_web
+  links:
+    - sodproduk-db:db
+
+sodproduk-db:
+  image: mariadb:10.0.38
+  restart: always
+  ports:
+    - '33992:3306'
+  volumes:
+    - './docker/mysql:/var/lib/mysql'
+  environment:
+    - MYSQL_ROOT_PASSWORD=ITD@2019!
+    - MYSQL_DATABASE=soduph_produkdbv2
+    - MYSQL_USER=soduph_produkv2
+    - MYSQL_PASSWORD=jpUSfkNt8KMZDGWF
