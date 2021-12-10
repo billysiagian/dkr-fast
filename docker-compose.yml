@@ -1,24 +1,23 @@
-
-sodproduk-web:
+fastuph-web:
   build: docker/
   ports:
-    - 9992:80
+    - 9994:80
   volumes:
     - ./public_html:/var/www/html:ro
 #    - ./configuration.php:/var/www/html/configuration.php:ro
-  container_name: sodproduk_web
+  container_name: fastuphc_web
   links:
-    - sodproduk-db:db
+    - fastuph-db:db
 
-sodproduk-db:
+fastuph-db:
   image: mariadb:10.0.38
   restart: always
   ports:
-    - '33992:3306'
+    - '33994:3306'
   volumes:
     - './docker/mysql:/var/lib/mysql'
   environment:
     - MYSQL_ROOT_PASSWORD=ITD@2019!
-    - MYSQL_DATABASE=soduph_produkdbv2
-    - MYSQL_USER=soduph_produkv2
-    - MYSQL_PASSWORD=jpUSfkNt8KMZDGWF
+    - MYSQL_DATABASE=fastuph_dbv2
+    - MYSQL_USER=fastuph_userv2
+    - MYSQL_PASSWORD=]Uxl[LPF1,Bc
